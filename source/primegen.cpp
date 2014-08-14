@@ -1,45 +1,32 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
-std::vector<int> primegen(int lim)
-{
-	std::vector<int> primes;
-	primes.push_back(2);
-	primes.push_back(3);
-	while (primes.size() < lim)
-	{
-		int nextprime = primes.back() + 2;
-		while (true)
-		{
-			bool isprime = true;
-			for(int i = 0; i < primes.size(); i++)
-			{
-				if (nextprime % primes[i] == 0)
-				{
-					isprime = false;
-					break;
-				}
-			}
-			if (isprime)
-			{
-				break;
-			}
-			else{
-				nextprime += 2;	
-				break;
-			}
-		}
-		primes.push_back(nextprime);
-	}
-	return (primes);
-}
+#include <string>
+#include "primegen.h"
 int main(int argc, char *argv[])
 {
-	int num = std::atoi(argv[1]);
-	std::vector<int> p = primegen(num);
-	for (int i = 0; i < p.size(); i++)
+	std::string type = argv[1];
+	if (type == "amount")
 	{
-		std::cout << p[i] << " | ";
+		int num = std::atoi(argv[2]);
+		std::vector<int> p = prime_amount(num);
+		for (int i = 0; i < p.size(); i++)
+		{
+			std::cout << p[i] << " | ";
+		}
+		std::cout << std::endl;
 	}
-	std::cout << std::endl;
+	else if (type == "upto")
+	{
+		int num = std::atoi(argv[2]);
+		std::vector<int> p = prime_upto(num);
+		for (int i = 0; i < p.size(); i++)
+		{
+			std::cout << p[i] << " | ";
+		}
+		std::cout << std::endl;
+	}
+	else {
+		std::cout << "please specify upto or amount" << std::endl;
+	}
 }
