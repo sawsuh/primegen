@@ -25,8 +25,7 @@ std::vector<int> prime_amount(int num)
 				break;
 			}
 			else{
-				nextprime += 2;	
-				break;
+				nextprime += 2;
 			}
 		}
 		primes.push_back(nextprime);
@@ -58,7 +57,6 @@ std::vector<int> prime_upto(int lim)
 			}
 			else{
 				nextprime += 2;	
-				break;
 			}
 		}	
 		primes.push_back(nextprime);
