@@ -22,7 +22,10 @@ int main(int argc, char *argv[])
 		std::vector<int> p = prime_upto(num);
 		for (int i = 0; i < p.size(); i++)
 		{
-			std::cout << p[i] << " | ";
+			if (p[i] <= num)
+			{
+				std::cout << p[i] << " | ";
+			}
 		}
 		std::cout << std::endl;
 	}
