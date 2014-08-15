@@ -1,10 +1,13 @@
+OPTIONS=-std=c++11
+COMPILE=g++-4.9
+
 all: main
 
 main: primegen functions
-	g++ primegen.o functions.o -o primegen
+	$(COMPILE) $(OPTIONS) primegen.o functions.o -o primegen
 primegen: primegen.cpp 
-	g++ -c primegen.cpp
+	$(COMPILE) $(OPTIONS) -c primegen.cpp
 functions: functions.cpp
-	g++ -c functions.cpp	
+	$(COMPILE) $(OPTIONS) -c functions.cpp	
 clean:
 	rm *.o
